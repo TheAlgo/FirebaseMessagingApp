@@ -8,6 +8,7 @@
     <item
         android:id="@+id/Notes"
         android:title="Notes"
-        app:showAsAction="collapseActionView"/>
+        app:showAsAction="always"
+        android:icon="@drawable/ic_action_name"/>
 
 </menu>
