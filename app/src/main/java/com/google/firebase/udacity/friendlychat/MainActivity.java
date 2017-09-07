@@ -34,7 +34,6 @@ import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
-import com.airbnb.lottie.LottieAnimationView;
 import com.firebase.ui.auth.AuthUI;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
@@ -68,7 +67,7 @@ public class MainActivity extends AppCompatActivity {
     public static int RC_SIGN_IN=1;
 
     private String mUsername;
-    private LottieAnimationView animationView;
+
     private FirebaseDatabase mFireBaseDatabase;
     private DatabaseReference mMessagesDatabaseReference;
     private ChildEventListener mChildEventListener;
@@ -84,7 +83,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        animationView = (LottieAnimationView) findViewById(R.id.animation_view);
+
         mUsername = ANONYMOUS;
         mFireBaseDatabase= FirebaseDatabase.getInstance();
         mFirebaseStorage= FirebaseStorage.getInstance();
@@ -251,9 +250,6 @@ public class MainActivity extends AppCompatActivity {
     {
         super.onActivityResult(requestCode,resultCode,data);
         if(requestCode==RC_SIGN_IN) {
-            animationView.setAnimation("Spider Loader.json");
-            animationView.loop(true);
-            animationView.playAnimation();
             if (resultCode == RESULT_OK) {
                 Toast.makeText(this, "Signed in", Toast.LENGTH_LONG).show();
             } else if (resultCode == RESULT_CANCELED) {
@@ -297,6 +293,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onResume()
     {
         super.onResume();
+
         mFirebaseAuth.addAuthStateListener(mAuthStateListener);
 
     }
