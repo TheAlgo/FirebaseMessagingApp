@@ -7,6 +7,7 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.view.ContextThemeWrapper;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -37,7 +38,7 @@ public class NotesActivity extends AppCompatActivity {
                 //  public void onClick(View view) {
                 notes.add("");
                 if (set == null) {
-                    set = new HashSet<String>();
+                    set = new HashSet<>();
                 } else {
                     set.clear();
                 }
@@ -51,7 +52,7 @@ public class NotesActivity extends AppCompatActivity {
             }
         });
         listView = (ListView) findViewById(R.id.listview);
-        sharedPreferences = this.getSharedPreferences("com.example.android.notes", Context.MODE_PRIVATE);
+        sharedPreferences = this.getSharedPreferences("com.google.firebase.udacity.friendlychat", Context.MODE_PRIVATE);
 
         set = sharedPreferences.getStringSet("notes", null);
 
@@ -61,7 +62,6 @@ public class NotesActivity extends AppCompatActivity {
             notes.addAll(set);//adds all the elements in the notes tghat is fetched by sharedpreferences
         } else {
 
-            notes.add("Example Note");
             set = new HashSet<String>();
             set.addAll(notes);//adding the example notes to set
             NotesActivity.sharedPreferences.edit().remove("notes").apply();
@@ -87,7 +87,7 @@ public class NotesActivity extends AppCompatActivity {
             public boolean onItemLongClick(AdapterView<?> parent, View view, final int position, long id) {
 
 
-                new AlertDialog.Builder(NotesActivity.this)
+                new AlertDialog.Builder(new ContextThemeWrapper(NotesActivity.this,R.style.AlertDialogCustom))
                         .setIcon(android.R.drawable.ic_dialog_alert)
                         .setTitle("Are you sure?")
                         .setMessage("Do you want to delete this?")
@@ -95,12 +95,14 @@ public class NotesActivity extends AppCompatActivity {
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
                                 notes.remove(position);
+                                SharedPreferences sharedPreferences=getApplicationContext().getSharedPreferences("com.example.android.notes", Context.MODE_PRIVATE);
                                 if (set == null) {
-                                    set = new HashSet<String>();
+                                    set = new HashSet<>();
                                 } else {
                                     set.clear();
                                 }
                                 set.addAll(notes);//adding the example notes to set
+                                NotesActivity.sharedPreferences.edit().remove("notes").apply();
                                 sharedPreferences.edit().putStringSet("notes", NotesActivity.set).apply();//adding everything to the memory
                                 arrayAdapter.notifyDataSetChanged();
 
