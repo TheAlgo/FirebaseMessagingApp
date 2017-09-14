@@ -287,6 +287,11 @@ public class MainActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         if(item.getItemId()==R.id.sign_out_menu)
             AuthUI.getInstance().signOut(this);
+        if(item.getItemId()==R.id.Notes)
+        {
+            Intent i=new Intent(getApplicationContext(),NotesActivity.class);
+            startActivity(i);
+        }
         return super.onOptionsItemSelected(item);
     }
     @Override

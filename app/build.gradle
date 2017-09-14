@@ -46,7 +46,9 @@ dependencies {
     compile 'com.airbnb.android:lottie:2.2.0'
     compile 'com.github.bumptech.glide:glide:3.6.1'
     compile 'com.android.support.constraint:constraint-layout:1.0.2'
+    compile 'com.github.florent37:animatedpencil:1.0.0'
     testCompile 'junit:junit:4.12'
 }
+
 
 
