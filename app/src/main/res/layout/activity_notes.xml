@@ -24,9 +24,11 @@
         app:fabSize="mini"
 
         android:layout_alignParentBottom="true"
-        android:layout_marginBottom="52dp"
-        android:layout_marginRight="25dp"
+        android:layout_marginBottom="50dp"
+        android:layout_marginRight="28dp"
         android:layout_alignParentRight="true"/>
+
+
     <com.github.florent37.animatedpencil.AnimatedPencil
         android:id="@+id/pencil"
         android:layout_width="wrap_content"
@@ -40,7 +42,8 @@
         android:layout_marginBottom="58dp"
         android:layout_marginRight="30dp"
         android:layout_alignParentRight="true"
-        />
+        android:layout_alignLeft="@+id/floatingActionButton"
+        android:layout_alignStart="@+id/floatingActionButton" />
 
 
 
