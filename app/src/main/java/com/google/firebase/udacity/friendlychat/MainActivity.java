@@ -292,6 +292,12 @@ public class MainActivity extends AppCompatActivity {
             Intent i=new Intent(getApplicationContext(),NotesActivity.class);
             startActivity(i);
         }
+
+        if(item.getItemId()==R.id.profile)
+        {
+            Intent i_prof=new Intent(getApplicationContext(),Profile_Activity.class);
+            startActivity(i_prof);
+        }
         return super.onOptionsItemSelected(item);
     }
     @Override
