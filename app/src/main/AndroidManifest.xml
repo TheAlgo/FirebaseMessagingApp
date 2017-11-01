@@ -17,7 +17,14 @@
         </activity>
         <activity android:name=".NotesActivity" />
         <activity android:name=".Edit_note" />
-        <activity android:name=".Profile_Activity"></activity>
+        <activity android:name=".Profile_Activity" />
+        <activity android:name=".SplashScreenActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
     </application>
 
 </manifest>

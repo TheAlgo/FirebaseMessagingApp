@@ -179,7 +179,7 @@ public class MainActivity extends AppCompatActivity {
                                     .setProviders(
                                             AuthUI.EMAIL_PROVIDER,
                                             AuthUI.GOOGLE_PROVIDER)
-                                    .setLogo(R.drawable.gggg)
+                                    .setLogo(R.drawable.logo)
                                     .build(),
                             RC_SIGN_IN);
                 }

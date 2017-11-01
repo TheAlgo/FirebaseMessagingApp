@@ -35,7 +35,7 @@
         android:layout_height="wrap_content"
         app:pencil_color="@android:color/white"
         android:elevation="6dp"
-        app:layout_anchor="@id/fab"
+        app:layout_anchor="@id/floatingActionButton"
         app:layout_anchorGravity="center"
         android:layout_gravity="center"
         android:layout_alignParentBottom="true"
