@@ -64,7 +64,7 @@ public class MainActivity extends AppCompatActivity {
     private ImageButton mPhotoPickerButton;
     private EditText mMessageEditText;
     private Button mSendButton;
-    public static int RC_SIGN_IN=1;
+   public static int RC_SIGN_IN=1;
 
     private String mUsername;
 
